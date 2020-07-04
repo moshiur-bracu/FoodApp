@@ -3,7 +3,7 @@ import 'package:FoodApp/shared/constants.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class TitlePriceRating extends StatelessWidget {
-  final int price, numOfReviews;
+  final String price, numOfReviews;
   final double rating;
   final String name;
   final RatingChangeCallback onRatingChanged;
@@ -51,17 +51,17 @@ class TitlePriceRating extends StatelessWidget {
     );
   }
 
-  ClipPath priceTag(BuildContext context, {int price}) {
+  ClipPath priceTag(BuildContext context, {String price}) {
     return ClipPath(
       clipper: PricerCliper(),
       child: Container(
         alignment: Alignment.topCenter,
         padding: EdgeInsets.symmetric(vertical: 15),
-        height: 66,
-        width: 65,
+        height: 80,
+        width: 100,
         color: kPrimaryColor,
         child: Text(
-          "\$$price",
+          "\Tk. $price",
           style: Theme.of(context)
               .textTheme
               .headline6

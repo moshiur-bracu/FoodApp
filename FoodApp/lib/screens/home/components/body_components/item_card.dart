@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:FoodApp/shared/constants.dart';
 
 class ItemCard extends StatelessWidget {
-  final String title, shopName, svgSrc;
+  final String title, svgSrc;
   final Function press;
   const ItemCard({
     Key key,
     this.title,
-    this.shopName,
     this.svgSrc,
     this.press,
   }) : super(key: key);
@@ -45,14 +44,10 @@ class ItemCard extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: Image(image: AssetImage(svgSrc)),
-                  width: size.width * 0.18,
+                  width: size.width * 0.3,
                 ),
                 Text(title),
                 SizedBox(height: 10),
-                Text(
-                  shopName,
-                  style: TextStyle(fontSize: 12),
-                ),
               ],
             ),
           ),

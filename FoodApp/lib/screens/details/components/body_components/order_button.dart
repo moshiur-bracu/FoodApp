@@ -30,10 +30,10 @@ class OrderButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Icon(Icons.shop),
+                Icon(Icons.shopping_cart),
                 SizedBox(width: 10),
                 Text(
-                  "Order Now",
+                  "ADD TO CART",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

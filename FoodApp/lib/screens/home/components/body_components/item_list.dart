@@ -14,15 +14,14 @@ class ItemList extends StatelessWidget {
       child: Row(
         children: <Widget>[
           ItemCard(
-            svgSrc: "assets/icons/burger_beer.png",
-            title: "Burger & Beer",
-            shopName: "MacDonald's",
+            svgSrc: "assets/icons/burger_icon.png",
+            title: "Burger",
             press: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Details();
+                    return Details(code: 'burger_1');
                   },
                 ),
               );
@@ -31,13 +30,11 @@ class ItemList extends StatelessWidget {
           ItemCard(
             svgSrc: "assets/icons/chinese_noodles.png",
             title: "Chinese & Noodles",
-            shopName: "Wendys",
             press: () {},
           ),
           ItemCard(
             svgSrc: "assets/icons/burger_beer.png",
             title: "Burger & Beer",
-            shopName: "MacDonald's",
             press: () {},
           )
         ],

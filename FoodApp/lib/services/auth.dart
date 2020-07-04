@@ -1,9 +1,21 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:FoodApp/models/user.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future getDatabaseInstance(String code) async {
+    try {
+      final value =
+          await Firestore.instance.collection('Products').document(code).get();
+      return value.data;
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
+  }
 
   // create user obj based on firebase user
   User _donorUserFromFirebaseUser(FirebaseUser user) {
