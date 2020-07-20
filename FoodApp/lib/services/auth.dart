@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:FoodApp/models/user.dart';
@@ -6,16 +5,17 @@ import 'package:FoodApp/models/user.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future getDatabaseInstance(String code) async {
+  /*Future getDatabaseInstance(String code) async {
     try {
       final value =
           await Firestore.instance.collection('Products').document(code).get();
+      //print(value.data);
       return value.data;
     } catch (error) {
       print(error.toString());
       return null;
     }
-  }
+  }*/
 
   // create user obj based on firebase user
   User _donorUserFromFirebaseUser(FirebaseUser user) {
@@ -28,6 +28,25 @@ class AuthService {
         //.map((FirebaseUser user) => _userFromFirebaseUser(user));
         .map(_donorUserFromFirebaseUser);
   }
+
+  /*List<Products> _productListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return Products(
+          imgSrc: doc.data['imgSrc'] ?? '',
+          name: doc.data['name'] ?? '',
+          price: doc.data['price'] ?? '',
+          numOfReviews: doc.data['numOfReviews'] ?? '',
+          rating: doc.data['rating'] ?? '',
+          textDetails: doc.data['textDetails'] ?? '');
+    }).toList();
+  }
+
+  Stream<List<Products>> get products {
+    return Firestore.instance
+        .collection('Products')
+        .snapshots()
+        .map(_productListFromSnapshot);
+  }*/
 
   // sign in with email and password
   Future signInWithEmailAndPassword(String email, String password) async {
